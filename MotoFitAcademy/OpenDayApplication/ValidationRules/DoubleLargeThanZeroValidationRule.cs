@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#region File Header & Copyright Notice
+//Copyright 2017 Motorola Solutions, Inc.
+//All Rights Reserved.
+//Motorola Solutions Confidential Restricted
+#endregion
+
+using System.Globalization;
 using System.Windows.Controls;
 
 namespace OpenDayApplication.ValidationRules
 {
     public class DoubleLargeThanZeroValidationRule : ValidationRule
     {
-        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             double d;
             bool result = double.TryParse(value.ToString(), out d);

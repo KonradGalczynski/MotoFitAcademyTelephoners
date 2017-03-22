@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region File Header & Copyright Notice
+//Copyright 2017 Motorola Solutions, Inc.
+//All Rights Reserved.
+//Motorola Solutions Confidential Restricted
+#endregion
+
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenDayApplication.Model.Managers;
 
 namespace OpenDayApplication.Viewmodel

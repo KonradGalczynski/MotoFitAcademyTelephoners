@@ -1,13 +1,15 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using OpenDayApplication.Model;
-using OpenDayApplication.Model.Managers;
-using OpenDayApplication.View;
+﻿#region File Header & Copyright Notice
+//Copyright 2017 Motorola Solutions, Inc.
+//All Rights Reserved.
+//Motorola Solutions Confidential Restricted
+#endregion
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using OpenDayApplication.Model;
+using OpenDayApplication.Model.Managers;
+using OpenDayApplication.View;
 
 namespace OpenDayApplication.Viewmodel
 {
@@ -29,33 +31,6 @@ namespace OpenDayApplication.Viewmodel
       {
         _timeList = value;
         OnPropertyChanged("TimeList");
-      }
-    }
-    public List<Class> ClassList
-    {
-      get { return _classList; }
-      set
-      {
-        _classList = value;
-        OnPropertyChanged("ClassList");
-      }
-    }
-    public List<Room> RoomList
-    {
-      get { return _roomList; }
-      set
-      {
-        _roomList = value;
-        OnPropertyChanged("RoomList");
-      }
-    }
-    public List<Worker> Workers
-    {
-      get { return _workers; }
-      set
-      {
-        _workers = value;
-        OnPropertyChanged("Workers");
       }
     }
     public WorkPlanElement EditedWorkPlanElement
@@ -95,8 +70,6 @@ namespace OpenDayApplication.Viewmodel
 
     private List<WorkPlanElement> _workPlanElements;
     private List<TimeSpan> _timeList;
-    private List<Class> _classList;
-    private List<Room> _roomList;
     private WorkPlanElement _editedWorkPlanElement;
     private bool _isWorkPlanElementEditVisible = false;
     private readonly RoomsManager _roomsManager;
@@ -104,7 +77,6 @@ namespace OpenDayApplication.Viewmodel
     private readonly WorkPlanManager _workPlanManager;
     private readonly WorkersManager _workersManager;
     private CrudOperation _selectedOperation;
-    private List<Worker> _workers;
     private List<DayOfWeek> _days;
 
     public WorkPlanViewModel()
@@ -130,11 +102,8 @@ namespace OpenDayApplication.Viewmodel
       EditedWorkPlanElement = new WorkPlanElement();
       PrepareLists();
 
-      EditedWorkPlanElement.Room = RoomList.FirstOrDefault();
-      EditedWorkPlanElement.Class = ClassList.FirstOrDefault();
       EditedWorkPlanElement.StartTime = TimeList.First();
       EditedWorkPlanElement.EndTime = TimeList.ElementAt(1);
-      EditedWorkPlanElement.Worker = Workers.FirstOrDefault();
       _selectedOperation = CrudOperation.Create;
 
     }
@@ -193,8 +162,6 @@ namespace OpenDayApplication.Viewmodel
 
     public void SaveChanges()
     {
-      //if (IsClientValid())
-      //{
       switch (_selectedOperation)
       {
         case CrudOperation.Create:
@@ -206,9 +173,6 @@ namespace OpenDayApplication.Viewmodel
       }
       RefreshWorkPlanElements();
       IsWorkPlanElementEditVisible = false;
-      //}
-      //else
-      //  MessageBox.Show("Yoe have entered incorrect data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
     public void Cancel()
@@ -220,9 +184,6 @@ namespace OpenDayApplication.Viewmodel
     {
       PrepareTimeList();
       PrepareDayList();
-      RoomList = _roomsManager.GetRooms();
-      ClassList = _classesManager.GetClasses();
-      Workers = _workersManager.GetWorkers();
     }
 
     private void RefreshWorkPlanElements()

@@ -63,8 +63,8 @@
             <TextBlock Text="Start time" Grid.Row="4" Grid.Column="0"/>
             <TextBlock Text="End time" Grid.Row="5" Grid.Column="0"/>
             <TextBox Grid.Row="0" Grid.Column="1" Margin="5"/>
-            <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" ItemsSource="{Binding ClassList}" SelectedItem="{Binding EditedWorkPlanElement.Class}" DisplayMemberPath="Name"/>
-            <ComboBox Grid.Row="2" Grid.Column="1" Margin="5" ItemsSource="{Binding RoomList}" SelectedItem="{Binding EditedWorkPlanElement.Room}" DisplayMemberPath="Name"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5"/>
             <ComboBox Grid.Row="3" Grid.Column="1" Margin="5" ItemsSource="{Binding Days}" SelectedItem="{Binding EditedWorkPlanElement.DayOfWeek}"/>
             <ComboBox Grid.Row="4" Grid.Column="1" Margin="5" ItemsSource="{Binding TimeList}" SelectedItem="{Binding EditedWorkPlanElement.StartTime}"/>
             <ComboBox Grid.Row="5" Grid.Column="1" Margin="5" ItemsSource="{Binding TimeList}" SelectedItem="{Binding EditedWorkPlanElement.EndTime}"/>

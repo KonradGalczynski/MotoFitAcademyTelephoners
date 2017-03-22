@@ -1,4 +1,9 @@
-﻿using OpenDayApplication.Model;
+﻿#region File Header & Copyright Notice
+//Copyright 2017 Motorola Solutions, Inc.
+//All Rights Reserved.
+//Motorola Solutions Confidential Restricted
+#endregion
+using OpenDayApplication.Model;
 using OpenDayApplication.Model.Managers;
 using System.Windows.Input;
 

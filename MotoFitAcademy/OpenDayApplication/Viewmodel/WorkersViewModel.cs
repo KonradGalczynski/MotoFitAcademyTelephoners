@@ -1,9 +1,13 @@
-﻿using OpenDayApplication.Model;
-using OpenDayApplication.Model.Managers;
+﻿#region File Header & Copyright Notice
+//Copyright 2017 Motorola Solutions, Inc.
+//All Rights Reserved.
+//Motorola Solutions Confidential Restricted
+#endregion
+
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
-using OpenDayApplication.Viewmodel.Validators;
+using OpenDayApplication.Model;
+using OpenDayApplication.Model.Managers;
 
 namespace OpenDayApplication.Viewmodel
 {
@@ -92,22 +96,17 @@ namespace OpenDayApplication.Viewmodel
 
       private void SaveChanges()
         {
-            if (WorkerValidator.Perform(EditedWorker))
+            switch (_selectedOperation)
             {
-                switch (_selectedOperation)
-                {
-                    case CrudOperation.Create:
-                        _workersManager.AddWorker(EditedWorker);
-                        break;
-                    case CrudOperation.Edit:
-                        _workersManager.EditWorker(EditedWorker);
-                        break;
-                }
-                IsWorkerEditVisible = false;
-                RefreshWorkers();
+                case CrudOperation.Create:
+                    _workersManager.AddWorker(EditedWorker);
+                    break;
+                case CrudOperation.Edit:
+                    _workersManager.EditWorker(EditedWorker);
+                    break;
             }
-            else
-                MessageBox.Show("Yoe have entered incorrect data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            IsWorkerEditVisible = false;
+            RefreshWorkers();
         }
 
         public void Cancel()
